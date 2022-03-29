@@ -272,9 +272,7 @@ def get_(new_keyword, new_tittle, details_data, true_url, dict=dict):
         sql_server = save_data_to_sql.Save_score_to_sql()
         sql_server.search_data_to_sql(data=dict)
         sql_server.details_data_to_sql(data=dict)
-        # list.append(dict)
-        # print(dict)
-        # return new_keyword
+
     else:
         print('不符合跳过0000000000000000000000000000000000')
         print(new_tittle, '111111111111111111')

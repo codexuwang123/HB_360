@@ -53,7 +53,6 @@ if __name__ == '__main__':
                 book_name = dict.get('book_name')
                 data_book = dict.get('data')
                 # 最大任务数
-                time3 = time.time()
                 with ThreadPoolExecutor(max_workers=set_.get('max_workers'))as f:
                     results = f.map(main_parse, data_book)
                 s_data.undate_data(status_='2', keyword=book_name)
