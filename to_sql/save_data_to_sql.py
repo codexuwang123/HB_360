@@ -35,11 +35,28 @@ class Save_score_to_sql(object):
             self.conn.rollback()
             print(e, sql, '===============')
 
+    # # 详情页数据库插入
+    # def details_data_to_sql(self, data):
+    #     print(data, '详情页======================')
+    #     sql = 'insert into details_data(id,number,author,tittle,description,protagonist)VALUES (0,"{}","{}","{}","{}","{}")'.format(
+    #         data['number'], data.get('details').get('author', ''), data.get('details').get('tittle', ''),
+    #         data.get('details').get('describe', ''), data.get('details').get('protagonist', ''))
+    #     # print(sql,'详情页=========')
+    #     try:
+    #         self.cur.execute(sql)
+    #         self.conn.commit()
+    #     except Exception as e:
+    #         # 插入数据发生错误回滚
+    #         self.conn.rollback()
+    #         print(e, sql, '==================')
+
     # 详情页数据库插入
     def details_data_to_sql(self, data):
         print(data, '详情页======================')
-        sql = 'insert into details_data(id,number,author,tittle,description,protagonist)VALUES (0,"{}","{}","{}","{}","{}")'.format(
-            data['number'], data.get('details').get('author', ''), data.get('details').get('tittle', ''),
+        sql = 'insert into details_data(id,number,author,author_score,book_name_score,section_score,weight,tittle,description,protagonist)VALUES (0,"{}","{}","{}","{}","{}","{}","{}","{}","{}")'.format(
+            data['number'], data.get('details').get('author', ''), data.get('details').get('author_score'),
+            data.get('details').get('book_name_score'), data.get('details').get('section_score'),
+            data.get('details').get('weight'), data.get('details').get('tittle', ''),
             data.get('details').get('describe', ''), data.get('details').get('protagonist', ''))
         # print(sql,'详情页=========')
         try:
@@ -50,10 +67,24 @@ class Save_score_to_sql(object):
             self.conn.rollback()
             print(e, sql, '==================')
 
+    # 整页面数据库插入
+    def book_html_to_sql(self, data):
+        # print(data, '整页数据插入======================')
+        sql = 'insert into book_data(id,number,book_name,true_url,book_detail)VALUES (0,"{}","{}","{}","{}")'.format(
+            data['number'], data['book_name'], data['true_url'], data['book_detail'])
+        try:
+            self.cur.execute(sql)
+            self.conn.commit()
+        except Exception as e:
+            # 插入数据发生错误回滚
+            self.conn.rollback()
+            print(e, sql, '==================')
+
+
     # 关键词查询
     def get_keyword(self):
 
-        sql = 'select Search_Keyword,Spider_Status from basic_information where Spider_Status=0 and channel_name=2'
+        sql = 'select search_keyword,spider_status,section_name,author from basic_information where spider_status=0 and channel_name=2'
         try:
             self.cur.execute(sql)
             results = self.cur.fetchall()
@@ -64,7 +95,7 @@ class Save_score_to_sql(object):
     # 更改状态
     def undate_data(self, status_, keyword):
         # 更改爬虫配置表状态
-        sql = "UPDATE basic_information SET Spider_Status = '{}' WHERE Search_Keyword = '{}' and  channel_name=2".format(
+        sql = "UPDATE basic_information SET spider_status = '{}' WHERE search_keyword = '{}' and  channel_name=2".format(
             status_, keyword)
         try:
             # print(sql)

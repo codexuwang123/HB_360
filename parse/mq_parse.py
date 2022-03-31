@@ -9,8 +9,8 @@
 import re
 
 #魔情
-def mq_par(data,dict):
-    dict_details = {}
+def mq_par(data,dict,dict_details):
+
     author = ''
     author1 = re.findall('<meta name="author" content=".*?作者：{0,1}"(.*?)".*?>', data, re.S)
     if author1:

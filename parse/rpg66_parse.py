@@ -10,8 +10,8 @@
 
 import re
 
-def chenguang_par(data,dict):
-    dict_details = {}
+def chenguang_par(data,dict,dict_details):
+
     author = re.findall('<div id="info">.*?<p>作.*?者：(.*?)</p>', data, re.S)
     if author:
         dict_details['author'] = author[0]

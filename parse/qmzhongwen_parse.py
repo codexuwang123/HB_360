@@ -62,9 +62,8 @@ def unsbox(arg):
 
 
 #七猫数据解析
-def qimao_parse(data,dict):
+def qimao_parse(data,dict,dict_details):
 
-    dict_details = {}
     author = re.findall('<p class="p-name"><em>作者：</em><a.*?>(.*?)</a>',data,re.S)
     if author:
         dict_details['author'] = author[0].replace('&nbsp;',' ').strip()

@@ -9,8 +9,8 @@ import re
 
 
 # 潇湘书院
-def xxshuyuan_par(data, dict):
-    dict_details = {}
+def xxshuyuan_par(data, dict,dict_details):
+
     author = re.findall('<div class="title">.*?<span>(.*?)</span>.*?</div>', data, re.S)
     if author:
         dict_details['author'] = author[0].replace('文&nbsp;', '').replace('/&nbsp;', '').replace('\r\n','').strip()

@@ -9,8 +9,8 @@
 import re
 
 #千千小说解析
-def qq_par():
-    dict_details = {}
+def qq_par(data,dict,dict_details):
+
     author = re.findall('<div id="info">.*?<p>作.*?者：(.*?)</p>', data, re.S)
     if author:
         dict_details['author'] = author[0]

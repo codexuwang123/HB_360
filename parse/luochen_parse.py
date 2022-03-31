@@ -9,8 +9,8 @@ import re
 
 
 # 阅书阁小说解析
-def parse_ysg(data, dict):
-    dict_details = {}
+def parse_ysg(data, dict,dict_details):
+
     author = re.findall('<i class="iconfont icon-biaoqian-zuozhe1">.*?<p.*?>(.*?)</p>', data, re.S)
     if author:
         dict_details['author'] = author[0]

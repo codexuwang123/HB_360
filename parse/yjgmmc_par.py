@@ -9,8 +9,8 @@ import re
 
 
 # 二月天小说解析
-def eryuet_par(data, dict):
-    dict_details = {}
+def eryuet_par(data, dict,dict_details):
+
     author = re.findall('<div class="title-info">.*?<a href=".*?">(.*?)</a>', data, re.S)
     if author:
         dict_details['author'] = author[0]

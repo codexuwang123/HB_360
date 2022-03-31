@@ -9,8 +9,8 @@
 import re
 
 # 选书网
-def quanshu(data,dict):
-    dict_details = {}
+def quanshu(data,dict,dict_details):
+
     author = re.findall('<div class="info_des">.*?<dl>作.*?者：(.*?)</dl>', data, re.S)
     if author:
         dict_details['author'] = author[0]

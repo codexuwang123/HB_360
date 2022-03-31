@@ -8,8 +8,8 @@
 import re
 
 #解析手机端书香电子
-def phone_sxcnw(data,dict):
-    dict_details = {}
+def phone_sxcnw(data,dict,dict_details):
+
 
     author = re.findall('<div class="jie">.*?<br>.*?<span>(.*?)</span>.*?<br>', data, re.S)
     if author:

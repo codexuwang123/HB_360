@@ -9,8 +9,8 @@
 import re
 
 #若夏
-def rx_par(data,dict):
-    dict_details = {}
+def rx_par(data,dict,dict_details):
+
 
     author = ''
     if '作者' in data:

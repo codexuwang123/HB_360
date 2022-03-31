@@ -9,8 +9,8 @@ import re
 
 
 # 解析搜小说
-def soxscc_par(data, dict):
-    dict_details = {}
+def soxscc_par(data, dict,dict_details):
+
     if '作者' in data:
         author = re.findall('\（作者：(.*?)\）', data, re.S)
         if author:

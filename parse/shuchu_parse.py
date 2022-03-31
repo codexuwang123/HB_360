@@ -9,8 +9,8 @@
 import re
 
 # 书橱网站解析
-def shuchu_par(data, dict):
-    dict_details = {}
+def shuchu_par(data, dict,dict_details):
+
     author = re.findall('<ul class="list">.*?<span>.*?作者：.*?<a.*?>(.*?)</a>.*?</span>', data, re.S)
     if author:
         dict_details['author'] = author[0].strip()

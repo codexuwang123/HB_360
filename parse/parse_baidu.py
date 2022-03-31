@@ -11,7 +11,7 @@ import requests
 
 
 # 解析百度小说代码
-def parse_b(url, dict):
+def parse_b(url, dict,dict_details):
     num = re.findall('gid=(\d+)', url)
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36'
@@ -23,7 +23,6 @@ def parse_b(url, dict):
     res = requests.get(url=new_url, headers=headers)
     if res.status_code == 200:
         data = res.json()
-        dict_details = {}
         new_data = data.get('data').get('novel')
         dict_details['tittle'] = new_data.get('title','')
         dict_details['author'] = new_data.get('author','')

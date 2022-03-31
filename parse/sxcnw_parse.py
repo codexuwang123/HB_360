@@ -9,8 +9,8 @@ import re
 
 
 # 书香电子书
-def sxdz_par(data, dict):
-    dict_details = {}
+def sxdz_par(data, dict,dict_details):
+
     author = re.findall('<div class="book-title clear">.*?<span>(.*?)</span>', data, re.S)
     if author:
         dict_details['author'] = author[0].replace('[全集完本]','').replace('&nbsp;','').strip()

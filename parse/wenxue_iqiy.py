@@ -10,8 +10,8 @@ import re
 
 
 # 文学爱奇艺
-def iqiy(data, dict):
-    dict_details = {}
+def iqiy(data, dict,dict_details):
+
     author = re.findall('<em class="writerName">(.*?)</em>', data, re.S)
     if author:
         dict_details['author'] = author[0].strip()

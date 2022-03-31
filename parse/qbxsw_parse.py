@@ -9,8 +9,8 @@
 import re
 
 # 全本小说网解析
-def qbxsw_parse(data,dict):
-    dict_details = {}
+def qbxsw_parse(data,dict,dict_details):
+
     author = ''
     author1 = re.findall('<span class="author">(.*?)</span></p>', data, re.S)
     if author1:

@@ -9,8 +9,8 @@ import re
 
 
 # 来书吧中文网
-def lais(data, dict):
-    dict_details = {}
+def lais(data, dict,dict_details):
+
     author = ''
     author1 = re.findall('<div id="maininfo">.*?<h3>作者：<a.*?>(.*?)</a></h3>', data, re.S)
     if author1:

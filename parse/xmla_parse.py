@@ -67,8 +67,8 @@ def parse_xmly_desc(string):
 
 
 # 喜马拉雅解析
-def smly_(data, dict):
-    dict_details = {}
+def smly_(data, dict,dict_details):
+
     new_data = re.findall(r'"tdkMeta":(.*?\})\}', data)
     description = re.findall('"richIntro":"(.*?)"shortIntro"', data, re.S)
     if description:

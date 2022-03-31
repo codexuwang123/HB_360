@@ -11,8 +11,8 @@ import re
 
 # 蜻蜓FM 小说解析
 
-def qt_par(data, dict):
-    dict_details = {}
+def qt_par(data, dict,dict_details):
+
     author = re.findall('<div class="pods">.*?<a .*?>(.*?)</a>.*?</div>', data, re.S)
     if author:
         dict_details['author'] = author[0]

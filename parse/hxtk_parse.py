@@ -9,8 +9,8 @@
 import re
 
 # 华夏天空小说网
-def hxtk_par(data,dict):
-    dict_details = {}
+def hxtk_par(data,dict,dict_details):
+
     author = re.findall('class="writer-name">(.*?)</a>', data, re.S)
     if author:
         dict_details['author'] = author[0].strip()

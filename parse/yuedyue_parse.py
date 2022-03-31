@@ -9,8 +9,8 @@ import re
 
 
 # 阅读悦小说解析
-def yuedyue_par(data, dict):
-    dict_details = {}
+def yuedyue_par(data, dict,dict_details):
+
     author = re.findall('<div class="block_txt2">.*?作者：<a href="/author.*?">(.*?)</a></p>', data, re.S)
     if author:
         dict_details['author'] = author[0].strip()

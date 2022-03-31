@@ -32,3 +32,7 @@ class Redis_connect():
     def delete_redis_all(self,redis_key):
         # redis 删除指定key 下的所有数据
         return self.job_redis.delete(redis_key)
+
+
+# rr = Redis_connect()
+# rr.delete_redis_all(redis_key='360s')

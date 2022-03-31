@@ -9,8 +9,8 @@
 import re
 
 # uu小说网数据解析
-def uuxs_par(data,dict):
-    dict_details = {}
+def uuxs_par(data,dict,dict_details):
+
     author = re.findall('<p class="author">作者：<span class="black"><a.*?>(.*?)</a>', data, re.S)
     if author:
         dict_details['author'] = author[0].strip()

@@ -8,8 +8,8 @@
 import re
 
 #红薯网
-def hongshu_par(data,dict):
-    dict_details = {}
+def hongshu_par(data,dict,dict_details):
+
     author = re.findall('<p class="top20">.*?作者：<a.*?>(.*?)</a>.*?</p>', data, re.S)
     if author:
         dict_details['author'] = author[0].strip()

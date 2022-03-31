@@ -9,8 +9,8 @@ import re
 
 
 # 搜小说详情解析
-def soxs_par(data, dict):
-    dict_details = {}
+def soxs_par(data, dict,dict_details):
+
     author = re.findall('<div class="pods">.*?<a .*?>(.*?)</a>.*?</div>', data, re.S)
     if author:
         dict_details['author'] = author[0]
